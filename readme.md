@@ -83,10 +83,9 @@ getAsciiImage(imageSource,config)
 
 - ``imageSource`` (*String*) : The absolute path to the image source.
 	
-- ``config`` (*Function*) : An object with two values namely maxWidth and maxHeight
-		1. *maxWidth* : Maximum ascii characters in one row of generated Ascii image. Default value is 300
-		2. *maxHeight* : Maximum ascii characters in one column of generated Ascii image . Default value is 300
-
+- ``config`` (*Function*) : An object with two values namely maxWidth and maxHeight.
+	- *maxWidth* : Maximum ascii characters in one row of generated Ascii image. Default value is 300
+	- *maxHeight* : Maximum ascii characters in one column of generated Ascii image . Default value is 300
 
 ## 📜 License
 
