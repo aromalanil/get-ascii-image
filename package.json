@@ -1,0 +1,31 @@
+{
+  "name": "get-ascii-image",
+  "version": "1.0.0",
+  "description": "Package to convert image to ascii characters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aromalanil/get-ascii-image.git"
+  },
+  "keywords": [
+    "image-to-ascii",
+    "front-end",
+    "conversion",
+    "image-processing",
+    "image-manipulation",
+    "ascii",
+    "image-conversion"
+  ],
+  "author": "Aromal Anil <contact@aromalanil.me> (https://aromalanil.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aromalanil/get-ascii-image/issues"
+  },
+  "homepage": "https://github.com/aromalanil/get-ascii-image#readme",
+  "files": [
+    "index.js"
+  ]
+}
