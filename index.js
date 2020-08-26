@@ -44,7 +44,7 @@ const getAsciiImage = (imageSource, config) => {
 
             resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width));
         }
-        image.onerror = reject(new Error("Unable to load image"));
+        image.onerror = () => reject(new Error("Unable to load image"));
         image.src = imageSource;
     });
 }
