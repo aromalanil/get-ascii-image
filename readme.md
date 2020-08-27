@@ -1,15 +1,24 @@
-
 <div align="center">
 	<img src="https://github.com/aromalanil/get-ascii-image/blob/master/demo/cover_image.jpg?raw=true" alt="Cover Image"></img>
     <h1>get-ascii-image</h1>
     <p>A zero dependency image to ascii convertor for Web🌐</p>
 	<br/>
 	<div align="center">
-	<img alt="npm" src="https://img.shields.io/npm/v/get-ascii-image?style=for-the-badge">
-	<img alt="npm" src="https://img.shields.io/npm/dw/get-ascii-image?style=for-the-badge">
-	<a href="https://github.com/aromalanil/get-ascii-image/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/aromalanil/get-ascii-image?style=for-the-badge"></a>
-	<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/get-ascii-image?style=for-the-badge">
-	<a href="https://github.com/aromalanil/get-ascii-image/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/aromalanil/get-ascii-image?style=for-the-badge"></a>
+	<a href= "https://www.npmjs.com/package/get-ascii-image/v/latest">
+		<img alt="npm" src="https://img.shields.io/npm/v/get-ascii-image?style=for-the-badge">
+	</a>
+	<a href= "https://www.npmjs.com/package/get-ascii-image/">
+		<img alt="npm Downloads/Week" src="https://img.shields.io/npm/dw/get-ascii-image?style=for-the-badge">
+	</a>
+	<a href="https://github.com/aromalanil/get-ascii-image/issues">
+		<img alt="GitHub issues" src="https://img.shields.io/github/issues/aromalanil/get-ascii-image?style=for-the-badge">
+	</a>
+	<a href= "https://www.npmjs.com/package/get-ascii-image/">
+		<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/get-ascii-image?style=for-the-badge">
+	</a>
+	<a href="https://github.com/aromalanil/get-ascii-image/blob/master/LICENSE">
+		<img alt="GitHub License" src="https://img.shields.io/github/license/aromalanil/get-ascii-image?style=for-the-badge">
+	</a>
 	</div>
 </div>
 
@@ -25,7 +34,7 @@ yarn add get-ascii-image
 
 <br/>
 
->Note : **This is a frontend only package**. (Because this package uses Canvas API of the DOM)
+> Note : **This is a frontend only package**. (Because this package uses Canvas API of the DOM)
 
 <br/>
 
@@ -53,44 +62,44 @@ getAsciiImage(imageURL,config)
 
 ## 🧵 Syntax
 
-### Using  async-await ✋🏻
+### Using async-await ✋🏻
+
 ```js
-const getAsciiImage = require('get-ascii-image');
+const getAsciiImage = require("get-ascii-image");
 
 //inside an async function
-try{
-	//Returns Ascii Image as a string
-	let asciiImage = await getAsciiImage(imageSource,config);
-}
-catch(err){
-	console.log(err);
+try {
+  //Returns Ascii Image as a string
+  let asciiImage = await getAsciiImage(imageSource, config);
+} catch (err) {
+  console.log(err);
 }
 ```
+
 ### Using Promise 🤝🏻
+
 ```js
-const getAsciiImage = require('get-ascii-image');
+const getAsciiImage = require("get-ascii-image");
 
-getAsciiImage(imageSource,config)
-	.then(ascii=>{
-		let asciiImage = ascii;
-	})
-	.catch(err=>{
-		console.log(err);
-	});
-
+getAsciiImage(imageSource, config)
+  .then((ascii) => {
+    let asciiImage = ascii;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 ```
 
 ## 🍬 Parameters
 
-- ``imageSource`` (*String*) : The absolute path to the image source.
-	
-- ``config`` (*Function*) : An object with two values namely maxWidth and maxHeight.
-	- *maxWidth* : Maximum ascii characters in one row of generated Ascii image. Default value is 300
-	- *maxHeight* : Maximum ascii characters in one column of generated Ascii image . Default value is 300
+- `imageSource` (_String_) : The absolute path to the image source.
+- `config` (_Function_) : An object with two values namely maxWidth and maxHeight.
+  - _maxWidth_ : Maximum ascii characters in one row of generated Ascii image. Default value is 300
+  - _maxHeight_ : Maximum ascii characters in one column of generated Ascii image . Default value is 300
 
 ## 🔗 Miscellaneous
 
-- In case you are taking the image from an external link, make sure the response to the link request contains the header ``Access-Control-Allow-Origin: *`` in it.
+- In case you are taking the image from an external link, make sure the response to the link request contains the header `Access-Control-Allow-Origin: *` in it.
 
 ## 📜 License
 
@@ -119,4 +128,5 @@ SOFTWARE.
 ```
 
 ## ✍🏻 Author
+
 [Aromal Anil](https://aromalanil.me)
