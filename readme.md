@@ -22,7 +22,15 @@
 	</div>
 </div>
 
-## ⚙ Installation
+<br/>
+
+> Note : **This is a frontend only package**, As this package uses Canvas API of the DOM.
+
+<br/>
+
+## 🧰 Installation
+
+### Using npm or yarn 📦
 
 ```bash
 # Using npm
@@ -32,11 +40,20 @@ npm i get-ascii-image
 yarn add get-ascii-image
 ```
 
-<br/>
+### Using CDN ⚡
 
-> Note : **This is a frontend only package**. (Because this package uses Canvas API of the DOM)
+Include the js script in your ``head`` tag as follows:
 
-<br/>
+```html
+<script src ="https://unpkg.com/get-ascii-image/index.js">
+```
+
+Or you can download the package from [here](https://github.com/aromalanil/get-ascii-image/archive/master.zip), extract it and include the path to the ``index.js`` in your ``head`` tag
+
+```html
+<script src ="path/to/get-ascii-image/index.js">
+```
+
 
 ## 🍰 Example
 
