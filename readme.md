@@ -45,13 +45,13 @@ yarn add get-ascii-image
 Include the js script in your ``head`` tag as follows:
 
 ```html
-<script src ="https://unpkg.com/get-ascii-image/index.js">
+<script src="https://unpkg.com/get-ascii-image/index.js" />
 ```
 
 Or you can download the package from [here](https://github.com/aromalanil/get-ascii-image/archive/master.zip), extract it and include the path to the ``index.js`` in your ``head`` tag
 
 ```html
-<script src ="path/to/get-ascii-image/index.js">
+<script src="path/to/get-ascii-image/index.js" />
 ```
 
 

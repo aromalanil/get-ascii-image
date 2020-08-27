@@ -1,6 +1,6 @@
 {
   "name": "get-ascii-image",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Package to convert image to ascii characters",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,13 @@
     "image-processing",
     "image-manipulation",
     "ascii",
+    "jpg",
+    "jpeg",
+    "gif",
+    "png",
+    "canvas",
+    "dom",
+    "pixel",
     "image-conversion"
   ],
   "author": "Aromal Anil <contact@aromalanil.me> (https://aromalanil.me)",
