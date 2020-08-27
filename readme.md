@@ -6,6 +6,7 @@
 	<br/>
 	<div align="center">
 	<img alt="npm" src="https://img.shields.io/npm/v/get-ascii-image?style=for-the-badge">
+	<img alt="npm" src="https://img.shields.io/npm/dw/get-ascii-image?style=for-the-badge">
 	<a href="https://github.com/aromalanil/get-ascii-image/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/aromalanil/get-ascii-image?style=for-the-badge"></a>
 	<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/get-ascii-image?style=for-the-badge">
 	<a href="https://github.com/aromalanil/get-ascii-image/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/aromalanil/get-ascii-image?style=for-the-badge"></a>
