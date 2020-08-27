@@ -28,6 +28,9 @@ const getAsciiImage = (imageSource, config) => {
 
         const image = new Image();
 
+        //To solve cross origin image access
+        image.crossOrigin = "Anonymous";
+
         //Function to be run after image is loaded
         image.onload = () => {
 

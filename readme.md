@@ -87,6 +87,10 @@ getAsciiImage(imageSource,config)
 	- *maxWidth* : Maximum ascii characters in one row of generated Ascii image. Default value is 300
 	- *maxHeight* : Maximum ascii characters in one column of generated Ascii image . Default value is 300
 
+## 🔗 Miscellaneous
+
+- In case you are taking the image from an external link, make sure the response to the link request contains the header ``Access-Control-Allow-Origin: *`` in it.
+
 ## 📜 License
 
 ```
