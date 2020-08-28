@@ -109,11 +109,28 @@ getAsciiImage(imageSource, config)
 
 ## 🍬 Parameters
 
-- `imageSource` (_String_) : The absolute path to the image source.
-- `config` (_Function_) : An object with two values namely maxWidth and maxHeight.
-  - _maxWidth_ : Maximum ascii characters in one row of generated Ascii image. Default value is 300
-  - _maxHeight_ : Maximum ascii characters in one column of generated Ascii image . Default value is 300
+-  `imageSource` (_String_) : The absolute path to the image source.
 
+-  `config` (_Function_) : Optional. An object with 3 values namely `maxWidth` and `maxHeight` and `avoidedCharacters`.
+
+## 🔧 Configuration
+
+Pass the configurations to the function using the `config` parameter. The `config` is an object which can contain the following values.
+
+ - `maxWidth` (_number_) : Maximum ascii characters in one row of generated Ascii image. Default value is 300
+ - `maxHeight` (_number_) : Maximum ascii characters in one column of generated Ascii image . Default value is 500
+ - `avoidedCharacters` (_String Array_) : Add all characters you want to avoid in the output, to this array.
+ 
+Here is an example of a `config` object :
+
+```js
+const config ={
+	maxWidth : 400,
+	maxHeight : 700,
+	avoidedCharacters : ['#','a']
+}
+```
+  
 ## 🔗 Miscellaneous
 
 - In case you are taking the image from an external link, make sure the response to the link request contains the header `Access-Control-Allow-Origin: *` in it.
