@@ -1,14 +1,15 @@
 /** 
- * @description Generates an ascii image (ascii art) by taking an image source as input.
+ * @description Generates an ascii image (ascii art) from an image source.
  * @param {string} imageSource The absolute path to the image
- * @param {object} [config] Configuration object
+ * @param {Object} [config] Customize your output by specifying your custom values
  * @param {number} [config.maxWidth=300] - Maximum ascii characters in one row of generated Ascii image.
  * @param {number} [config.maxHeight=500] - Maximum ascii characters in one column of generated Ascii image .
+ * @param {Array.<string>} [config.avoidedCharacters=[]] - All ascii characters you want to avoid from the output.
  * @return {string} The ascii image 
  */
 const getAsciiImage = (imageSource, config) => {
 
-    let maxWidth, maxHeight;
+    let maxWidth, maxHeight, avoidedCharacters;
 
     if (!imageSource) {
         return new Promise((resolve, reject) => {
@@ -18,6 +19,7 @@ const getAsciiImage = (imageSource, config) => {
     if (config) {
         maxHeight = config.maxHeight;
         maxWidth = config.maxWidth;
+        avoidedCharacters = config.avoidedCharacters;
     }
 
     //Creating canvas and context for image manipulation
@@ -45,7 +47,7 @@ const getAsciiImage = (imageSource, config) => {
 
             const grayScaleArray = _canvasToGrayScale(context, width, height);
 
-            resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width));
+            resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width, avoidedCharacters || []));
         }
         image.onerror = () => reject(new Error("Unable to load image"));
         image.src = imageSource;
@@ -98,10 +100,16 @@ const _canvasToGrayScale = (context, width, height) => {
 const _rgbToGrayScale = (r, g, b) => (0.3 * r) + (0.59 * g) + (0.11 * b);
 
 //Returns an Ascii string
-const _getAsciiFromGrayScaleArray = (grayScaleArray, width) => {
+const _getAsciiFromGrayScaleArray = (grayScaleArray, width, avoidedCharacters) => {
 
     //70 Ascii shades of grey in descending order of intensity;
     let asciiIntensityArray = ["$", "@", "B", "%", "8", "&", "W", "M", "#", "*", "o", "a", "h", "k", "b", "d", "p", "q", "w", "m", "Z", "O", "0", "Q", "L", "C", "J", "U", "Y", "X", "z", "c", "v", "u", "n", "x", "r", "j", "f", "t", "/", "|", "(", ")", "1", "{", "}", "[", "]", "?", "-", "_", "+", "~", "<", ">", "i", "!", "l", "I", ";", ":", ",", '"', "^", "`", "'", ".", " "];
+
+    //Removing unwanted characters from the array
+    if (avoidedCharacters.length !== 0) {
+        asciiIntensityArray = asciiIntensityArray.filter(asciiChar => !avoidedCharacters.includes(asciiChar));
+    }
+
     let noOfShades = asciiIntensityArray.length;
 
     let asciiImage = "";
