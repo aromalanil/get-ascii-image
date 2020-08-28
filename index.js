@@ -2,9 +2,9 @@
  * @description Generates an ascii image (ascii art) from an image source.
  * @param {string} imageSource The absolute path to the image
  * @param {Object} [config] Customize your output by specifying your custom values
- * @param {number} [config.maxWidth=300] - Maximum ascii characters in one row of generated Ascii image.
- * @param {number} [config.maxHeight=500] - Maximum ascii characters in one column of generated Ascii image .
- * @param {Array.<string>} [config.avoidedCharacters=[]] - All ascii characters you want to avoid from the output.
+ * @param {number} [config.maxWidth=300] Maximum ascii characters in one row of generated Ascii image.
+ * @param {number} [config.maxHeight=500] Maximum ascii characters in one column of generated Ascii image .
+ * @param {Array.<string>} [config.avoidedCharacters=[]] All ascii characters you want to avoid from the output.
  * @return {string} The ascii image 
  */
 const getAsciiImage = (imageSource, config) => {
