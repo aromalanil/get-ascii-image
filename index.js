@@ -4,7 +4,7 @@
  * @param {Object} [config] Customize your output by specifying your custom values
  * @param {number} [config.maxWidth=300] Maximum ascii characters in one row of generated Ascii image.
  * @param {number} [config.maxHeight=500] Maximum ascii characters in one column of generated Ascii image .
- * @param {Array.<string>} [config.avoidedCharacters=[]] All ascii characters you want to avoid from the output.
+ * @param {Array.<string>} [config.avoidedCharacters=null] All ascii characters you want to avoid from the output.
  * @return {string} The ascii image 
  */
 const getAsciiImage = (imageSource, config) => {
@@ -47,7 +47,7 @@ const getAsciiImage = (imageSource, config) => {
 
             const grayScaleArray = _canvasToGrayScale(context, width, height);
 
-            resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width, avoidedCharacters || []));
+            resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width, avoidedCharacters || null));
         }
         image.onerror = () => reject(new Error("Unable to load image"));
         image.src = imageSource;
@@ -106,7 +106,7 @@ const _getAsciiFromGrayScaleArray = (grayScaleArray, width, avoidedCharacters) =
     let asciiIntensityArray = ["$", "@", "B", "%", "8", "&", "W", "M", "#", "*", "o", "a", "h", "k", "b", "d", "p", "q", "w", "m", "Z", "O", "0", "Q", "L", "C", "J", "U", "Y", "X", "z", "c", "v", "u", "n", "x", "r", "j", "f", "t", "/", "|", "(", ")", "1", "{", "}", "[", "]", "?", "-", "_", "+", "~", "<", ">", "i", "!", "l", "I", ";", ":", ",", '"', "^", "`", "'", ".", " "];
 
     //Removing unwanted characters from the array
-    if (avoidedCharacters.length !== 0) {
+    if (avoidedCharacters) {
         asciiIntensityArray = asciiIntensityArray.filter(asciiChar => !avoidedCharacters.includes(asciiChar));
     }
 
