@@ -84,10 +84,12 @@ getAsciiImage(imageURL,config)
 ```js
 const getAsciiImage = require("get-ascii-image");
 
+let asciiImage;
+
 //inside an async function
 try {
   //Returns Ascii Image as a string
-  let asciiImage = await getAsciiImage(imageSource, config);
+  asciiImage = await getAsciiImage(imageSource, config);
 } catch (err) {
   console.log(err);
 }
@@ -98,9 +100,11 @@ try {
 ```js
 const getAsciiImage = require("get-ascii-image");
 
+let asciiImage;
+
 getAsciiImage(imageSource, config)
   .then((ascii) => {
-    let asciiImage = ascii;
+    asciiImage = ascii;
   })
   .catch((err) => {
     console.log(err);

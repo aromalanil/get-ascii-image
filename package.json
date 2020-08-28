@@ -1,6 +1,6 @@
 {
   "name": "get-ascii-image",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Package to convert image to ascii characters",
   "main": "index.js",
   "scripts": {
