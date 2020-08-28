@@ -17,9 +17,9 @@ const getAsciiImage = (imageSource, config) => {
         })
     }
     if (config) {
-        maxHeight = config.maxHeight;
-        maxWidth = config.maxWidth;
-        avoidedCharacters = config.avoidedCharacters;
+        maxHeight = config.maxHeight || 500;
+        maxWidth = config.maxWidth || 300;
+        avoidedCharacters = config.avoidedCharacters || null;
     }
 
     //Creating canvas and context for image manipulation
@@ -37,7 +37,7 @@ const getAsciiImage = (imageSource, config) => {
         image.onload = () => {
 
             //Reducing width and height based on maxWidth and maxHeight preserving Aspect-ratio
-            const [width, height] = _reduceDimension(image.width, image.height, maxWidth || 300, maxHeight || 500);
+            const [width, height] = _reduceDimension(image.width, image.height, maxWidth, maxHeight);
 
             canvas.width = width;
             canvas.height = height;
@@ -47,7 +47,7 @@ const getAsciiImage = (imageSource, config) => {
 
             const grayScaleArray = _canvasToGrayScale(context, width, height);
 
-            resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width, avoidedCharacters || null));
+            resolve(_getAsciiFromGrayScaleArray(grayScaleArray, width, avoidedCharacters));
         }
         image.onerror = () => reject(new Error("Unable to load image"));
         image.src = imageSource;
