@@ -1,11 +1,11 @@
 /** 
- * @description Generates an ascii image (ascii art) from an image source.
+ * Takes an image source and converts it into ASCII art.
  * @param {string} imageSource The absolute path to the image
- * @param {Object} [config] Customize your output by specifying your custom values
- * @param {number} [config.maxWidth=300] Maximum ascii characters in one row of generated Ascii image.
- * @param {number} [config.maxHeight=500] Maximum ascii characters in one column of generated Ascii image .
- * @param {Array.<string>} [config.avoidedCharacters=null] All ascii characters you want to avoid from the output.
- * @return {string} The ascii image 
+ * @param {Object} [config] Object to specify configuration for the output.
+ * @param {number} [config.maxWidth=300] Character limit in one row of the generated ASCII image.
+ * @param {number} [config.maxHeight=500] Character limit in one column of the generated ASCII image .
+ * @param {Array.<string>} [config.avoidedCharacters=null] Array of ASCII characters that are to be avoided from the output.
+ * @return {Promise} Promise object representing the generated ASCII string.
  */
 const getAsciiImage = (imageSource, config) => {
 
@@ -53,8 +53,15 @@ const getAsciiImage = (imageSource, config) => {
         image.src = imageSource;
     });
 }
-//Function returns a width and height array which falls under maxWidth and maxHeight respectively 
-//preserving the Aspect-ratio
+
+/**
+ * Decrease the width and height to fit in the limit, preserving the aspect-ratio.
+ * @param {int} width The width to be decreased.
+ * @param {int} height The height to be decreased.
+ * @param {int} maxWidth The maximum height possible.
+ * @param {int} maxHeight The maximum height possible.
+ * @return {Array.<int>} The array containing reduced width and height respectively. 
+ */
 const _reduceDimension = (width, height, maxWidth, maxHeight) => {
 
     if (width > maxWidth) {
@@ -71,7 +78,14 @@ const _reduceDimension = (width, height, maxWidth, maxHeight) => {
     return [width, height];
 }
 
-//Returns an array with grayscale values of each pixel
+/**
+ * 
+ * Generates an array with grayscale values of each pixel from the context.
+ * @param {Object} context The context of the canvas, from which the image is to be taken.
+ * @param {int} width The width of the image.
+ * @param {int} height The height of the image.
+ * @return {Array.<int>} Array containing the grayscale values corresponding to each pixels.
+ */
 const _canvasToGrayScale = (context, width, height) => {
 
     //Getting underlying pixel data from canvas
@@ -95,14 +109,28 @@ const _canvasToGrayScale = (context, width, height) => {
     return grayScaleArray;
 }
 
-
-//Function to convert rgb to corresponding grayscale number
+/**
+ * 
+ * Converts rgb to corresponding grayscale value.
+ * @param {int} r Value of red (0 to 255).
+ * @param {int} g Value of green (0 to 255).
+ * @param {int} b Value of blue (0 to 255).
+ * @return {int} Grayscale scale value calculated from rgb (0 to 255).
+ */
 const _rgbToGrayScale = (r, g, b) => (0.3 * r) + (0.59 * g) + (0.11 * b);
 
-//Returns an Ascii string
+
+/**
+ * 
+ * Generates ASCII string from the grayscale array.
+ * @param {Array.<int>} grayScaleArray Array containing the grayscale values corresponding to each pixels.
+ * @param {int} width Width of the image.
+ * @param {Array.<string>} avoidedCharacters Array of ASCII characters that are to be avoided from the output.
+ * @return {string} String containing the generated ASCII image.
+ */
 const _getAsciiFromGrayScaleArray = (grayScaleArray, width, avoidedCharacters) => {
 
-    //70 Ascii shades of grey in descending order of intensity;
+    //70 ASCII shades of grey in descending order of intensity;
     let asciiIntensityArray = ["$", "@", "B", "%", "8", "&", "W", "M", "#", "*", "o", "a", "h", "k", "b", "d", "p", "q", "w", "m", "Z", "O", "0", "Q", "L", "C", "J", "U", "Y", "X", "z", "c", "v", "u", "n", "x", "r", "j", "f", "t", "/", "|", "(", ")", "1", "{", "}", "[", "]", "?", "-", "_", "+", "~", "<", ">", "i", "!", "l", "I", ";", ":", ",", '"', "^", "`", "'", ".", " "];
 
     //Removing unwanted characters from the array

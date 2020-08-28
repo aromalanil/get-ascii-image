@@ -1,6 +1,6 @@
 {
   "name": "get-ascii-image",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Frontend only package, which converts image source into ASCII art",
   "main": "index.js",
   "scripts": {
