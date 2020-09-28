@@ -57,7 +57,7 @@ Or you can download the package from [here](https://github.com/aromalanil/get-as
 ## 🍰 Example
 
 ```js
-const getAsciiImage = require('get-ascii-image');
+import getAsciiImage from "get-ascii-image";
 
 const imageURL = 'https://example.com/image.jpg';
 
@@ -81,7 +81,7 @@ getAsciiImage(imageURL,config)
 ### Using async-await ✋🏻
 
 ```js
-const getAsciiImage = require("get-ascii-image");
+import getAsciiImage from "get-ascii-image";
 
 let asciiImage;
 
@@ -97,7 +97,7 @@ try {
 ### Using Promise 🤝🏻
 
 ```js
-const getAsciiImage = require("get-ascii-image");
+import getAsciiImage from "get-ascii-image";
 
 let asciiImage;
 
